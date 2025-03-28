@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Universitet | Fanlar</title>
+</head>
+<body>
+<h1>Fanlar royxati</h1>
+<form  method="get">
+  <input type="text" name="search"  value="{{search_param}}" placeholder="Ism kiriting">
+  <button type="submit" >Qidirish </button>
+</form>
+<hr>
+{%for fan in fanlar%}
+    <p>
+        {{forloop.counter}}.
+        <a href="/fan/{{fan.id}}">{{fan.ism}}</a>
+    </p>
+{%endfor%}
+<hr>
+<form method="post">
+    {%csrf_token%}
+    <label for="nom">Nom:</label>
+    <input type="text" name="nom" id="nom" required>
+    <br><br>
+    <label for="asosiy">Asosiy </label>
+    <input type="checkbox" name="nom" id="asosiy" required>
+    <br><br>
+    <label for="yonalish">Yonalish</label>
+    <select name="yonalish_id" id="yonalish" required>
+        {%for yonalish in yonalishlar%}
+            <option value="{{yonalish.id}}">{{yonalish.nom}}</option>
+        {%endfor%}
+    </select>
+    <button>Saqlash</button>
+</form>
+</body>
+</html>

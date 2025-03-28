@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Universitet | Ustozlar</title>
+</head>
+<body>
+<h1>Ustozlar royxati</h1>
+<form  method="get">
+  <input type="text" name="search"  value="{{search_param}}" placeholder="Ism kiriting">
+  <button type="submit" >Qidirish </button>
+</form>
+<hr>
+{%for ustoz in ustozlar%}
+    <p>
+        {{forloop.counter}}.
+        <a href="/ustoz/{{ustoz.id}}">{{ustoz.ism}}</a>
+    </p>
+{%endfor%}
+<hr>
+<h2>Yangi Ustoz qoshish</h2>
+<form method="post">
+    {%csrf_token%}
+    <label for="ism">Ism:</label>
+    <input type="text" name="ism" id="ism" required>
+    <br><br>
+    <label for="yosh">Yosh: </label>
+    <input type="number" name="yosh" id="yosh" required>
+    <br><br>
+    <label for="jins">Jins: </label>
+    <input type="text" name="jins" id="jins" required>
+    <br><br>
+    <label for="daraja">Daraja: </label>
+    <input type="text" name="daraja" id="daraja" required>
+    <br><br>
+    <label for="fan">fan</label>
+    <select name="fan_id" id="fan" required>
+        {%for fan in fanlar%}
+            <option value="{{fan.id}}">{{fan.nom}}</option>
+        {%endfor%}
+    </select>
+    <button>Saqlash</button>
+</form>
+</body>
+</html>
