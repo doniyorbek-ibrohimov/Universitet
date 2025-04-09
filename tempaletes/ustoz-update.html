@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ustozlar | Update</title>
+</head>
+<body>
+<h2>{{ustoz.nom}} Malumoti</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="ism">Ism: </label>
+    <input type="text" name="ism" id="ism" value="{{ustoz.ism}}">
+     <label for="yosh">Yosh: </label>
+    <input type="number" name="yosh" id="yosh" value="{{ustoz.yosh}}">
+   <label for="jins">Jins: </label>
+    <input type="text" name="jins" id="jins" value="{{ustoz.jins}}">
+  <label for="daraja">Daraja: </label>
+    <input type="text" name="daraja" id="daraja" value="{{ustoz.daraja}}">
+  <label for="fan">Fan:</label>
+  <select name="fan_id" id="fan" required>
+        {%for fan in fanlar%}
+            <option value="{{fan.id}}">{{fan.nom}}</option>
+        {%endfor%}
+    </select>
+</form>
+</body>
+</html>

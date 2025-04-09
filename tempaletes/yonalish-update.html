@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yonalishlar | Update</title>
+</head>
+<body>
+<h2>{{yonalish.nom}} Malumoti</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="nom">Nom: </label>
+    <input type="text" name="nom" id="nom" value="{{yonalish.nom}}">
+     <label for="aktiv">Aktiv: </label>
+    <input type="text" name="aktiv" id="aktiv" value="{{yonalish.aktiv}}">
+</form>
+</body>
+</html>

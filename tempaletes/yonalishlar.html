@@ -8,11 +8,9 @@
 <h2>Yangi Yonalish qoshish</h2>
 <form method="post">
     {%csrf_token%}
-    <label for="nom">Nom:</label>
-    <input type="text" name="nom" id="nom" required>
-    <br><br>
-    <label for="aktiv">Aktiv: </label>
-    <input type="text" name="aktiv" id="aktiv" required>
+    {{ form.as_p }}
+    <button>Saqlash</button>
+    <a href="/yonalish/{{yonalish.id}}/update/"><button>Update</button></a>
 </form>
 <hr>
 <h1>Yonalishlar royxati</h1>

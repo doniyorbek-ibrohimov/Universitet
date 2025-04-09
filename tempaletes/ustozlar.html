@@ -21,25 +21,9 @@
 <h2>Yangi Ustoz qoshish</h2>
 <form method="post">
     {%csrf_token%}
-    <label for="ism">Ism:</label>
-    <input type="text" name="ism" id="ism" required>
-    <br><br>
-    <label for="yosh">Yosh: </label>
-    <input type="number" name="yosh" id="yosh" required>
-    <br><br>
-    <label for="jins">Jins: </label>
-    <input type="text" name="jins" id="jins" required>
-    <br><br>
-    <label for="daraja">Daraja: </label>
-    <input type="text" name="daraja" id="daraja" required>
-    <br><br>
-    <label for="fan">fan</label>
-    <select name="fan_id" id="fan" required>
-        {%for fan in fanlar%}
-            <option value="{{fan.id}}">{{fan.nom}}</option>
-        {%endfor%}
-    </select>
+    {{ form.as_p }}
     <button>Saqlash</button>
+    <a href="/ustozlar/{{ustoz.id}}/update"><button>Update</button></a>
 </form>
 </body>
 </html>

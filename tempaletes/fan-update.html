@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fanlar | Update</title>
+</head>
+<body>
+<h2>{{fan.nom}} Malumoti</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="nom">Nom: </label>
+    <input type="text" name="nom" id="nom" value="{{fan.nom}}">
+     <label for="assosiy">Asosiy: </label>
+    <input type="checkbox" name="assosiy" id="assosiy" value="{{fan.assosiy}}">
+    <label for="yonalish">Yonalish: </label>
+     <label for="yonalish">yonalish</label>
+    <select name="yonalish_id" id="yonalish" required>
+        {%for yonalish in yonalishlar%}
+            <option value="{{yonalish.id}}">{{yonalish.nom}}</option>
+        {%endfor%}
+    </select>
+
+</form>
+
+</body>
+</html>
